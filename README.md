@@ -29,6 +29,9 @@ I created this project as an exercise to this very popular coding test problem. 
   * I did not practice writing tests.
   * I only knew `JUnit`.
 
+* My code did not look clean.
+  * Anything more than 10-15 lines is a `code smell`.
+
 * I did not follow instructions.
 
   * I did not push to Github because I did not know how to use Git/Github properly.
@@ -39,8 +42,7 @@ I created this project as an exercise to this very popular coding test problem. 
   * MacOS usually produces unwanted dot files (e.g. .DS_Store). This annoys employers.
   * I did not use `gitignore`
 
-* My code did not look clean.
-  * Anything more than 10-15 lines is a `code smell`.
+* I wrote a word document instead of a Markdown
 
 ## What could I have done differently?
 
@@ -60,8 +62,10 @@ I created this project as an exercise to this very popular coding test problem. 
 * I know Ruby now, but I will do it in `JavaScript` as it helps me think in a more functional way.
 * I will make it as functional as possible as it is easier to think in smaller parts.
 * I will structure my data better.
+
 * I will write better, cleaner and more functional tests with properly mocked data.
 * I will read the instructions carefully. Every character and every word of that `PROBLEM.md`.
+* I will write a better Solution README (`SOLUTION.md`) using Markdown. 
 
 ## Why am I writing these?
 
