@@ -2,10 +2,12 @@
 
 I created this project as an exercise to this very popular coding test problem. The solution that you will see here is purely my style of solving the problem and it is not by any means the only solution to the exercise.
 
+
 ## Here are the links to the Problem and Solution
 
 * [PROBLEM](/PROBLEM.md)
 * [SOLUTION](/SOLUTION.md) (_Warning: Do not read the Solution if you haven't tried to solve this yourself_)
+
 
 ## Confessions. I have done this coding test before and failed horribly
 
@@ -55,6 +57,9 @@ I created this project as an exercise to this very popular coding test problem. 
 * Write better tests. Tests should tell you a story. They should be as functional as the functions/methods you write. They should be able to stand on their own and should not be linked to other tests.
 
 * Read the instructions and follow it carefully. Sometimes the stress makes you see things you are not supposed to.
+
+* Write a better Solution README using Markdown.
+
 
 ## What am I going to do differently this time?
 
