@@ -17,11 +17,11 @@ I created this project as an exercise to this very popular coding test problem. 
 
 * I was comfortable and I did not bother to master more languages.
 
-  * I only knew `Java` and `PHP/VB.NET/ABAP`, but I did it in Java because I knew Java and I was loyal to Java. Don't get me wrong. Java is not all that bad, but trying to learn more languages will improve your overall perspective of programming coding style and maturity to what other humans beings and the company they represent expects of you.
+  * I only knew `Java` and `PHP/VB.NET/ABAP`, but I did it in Java because I knew Java and I was loyal to Java. Don't get me wrong. Java is not all that bad, but trying to learn more languages will improve your overall perspective of programming. It will improve your coding style and maturity to what the employer expects of you.
 
-  * Culture got in the way. The company I worked for previously for several years did not promote a culture of continuous learning. Also, don't get me wrong on this one. I loved my team and I felt like I belong. But the world when I got in the company was different to the world when I got out.
+  * Culture got in the way. The company I worked for previously for several years did not promote a culture of continuous learning. The world simply was not the same when I got in the company and when I got out.
 
-  * Team Leading got in the way. Getting more senior responsibilities sometimes put you out of practice. You get home, and you feel very tired and unmotivated, and you could not practice.
+  * Team Leading got in the way. Getting more senior responsibilities sometimes put you out of practice. You get home, and you feel very tired and unmotivated to code, and you could not practice.
 
 * I wrote tests because I read about `Test Driven Development` but I was not doing it properly.
 
