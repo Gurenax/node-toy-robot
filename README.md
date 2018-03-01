@@ -5,8 +5,8 @@ I created this project as an exercise to this very popular coding test problem. 
 
 ## Here are the links to the Problem and Solution
 
-* [PROBLEM](/PROBLEM.md)
-* [SOLUTION](/SOLUTION.md) (_Warning: Do not read the Solution if you haven't tried to solve this yourself_)
+* [PROBLEM](/docs/PROBLEM.md)
+* [SOLUTION](/docs/SOLUTION.md) (_Warning: Do not read the Solution if you haven't tried to solve this yourself_)
 
 
 ## Confessions. I have done this coding test before and failed horribly

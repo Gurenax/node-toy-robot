@@ -2,6 +2,6 @@
 
 ## Are you sure you tried solving this Problem?
 
-### [YES](/SOLUTION_.md)
+### [YES](/docs/SOLUTION_.md)
 ### [NO](/README.md)
 
