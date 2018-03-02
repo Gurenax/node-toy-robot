@@ -2,6 +2,33 @@ const { csvToArray } = require('./utils/csv')
 const { isValidCoordinatesAndDirection } = require('./placeHelper')
 
 /*
+* Evaluate toy robot commands
+* @params {string} commandStr A multi-line string of toy robot commands
+* @example
+* evaluate(['PLACE 0,0,NORTH', 'MOVE', 'LEFT', 'RIGHT', 'REPORT']) // 0,1,NORTH
+*/
+const evaluate = commandStr => {
+  let result = {}
+  // Convert to Command Array
+  toCommandArray(commandStr).map(command => {
+    if (command.indexOf('PLACE') === 0) {
+      result = place(command)
+    } else if (command === 'MOVE') {
+      const currentCoordinates = { ...result }
+      result = move(currentCoordinates)
+    } else if (command === 'LEFT') {
+      const currentCoordinates = { ...result }
+      result = rotate(currentCoordinates, 'LEFT')
+    } else if (command === 'RIGHT') {
+      const currentCoordinates = { ...result }
+      result = rotate(currentCoordinates, 'RIGHT')
+    } else if (command === 'REPORT') {
+      report(result)
+    }
+  })
+}
+
+/*
 * Read toy robot commands and convert to Array
 * @params {string} commandStr A multi-line string of toy robot commands
 * @returns {object} Array of commands
@@ -25,32 +52,6 @@ const toCommandArray = commandStr => {
       if (trimmedCommand.length > 0) return trimmedCommand.toUpperCase()
     })
     .filter(elem => elem !== undefined) // Remove undefined elements
-}
-
-/*
-* Evaluate toy robot commands
-* @params {object} commands Array of commands
-* @example
-* evaluate(['PLACE 0,0,NORTH', 'MOVE', 'LEFT', 'RIGHT', 'REPORT']) // 0,1,NORTH
-*/
-const evaluate = commands => {
-  let result = {}
-  commands.map(command => {
-    if (command.indexOf('PLACE') === 0) {
-      result = place(command)
-    } else if (command === 'MOVE') {
-      const currentCoordinates = { ...result }
-      result = move(currentCoordinates)
-    } else if (command === 'LEFT') {
-      const currentCoordinates = { ...result }
-      result = rotate(currentCoordinates, 'LEFT')
-    } else if (command === 'RIGHT') {
-      const currentCoordinates = { ...result }
-      result = rotate(currentCoordinates, 'RIGHT')
-    } else if (command === 'REPORT') {
-      report(result)
-    }
-  })
 }
 
 /*
