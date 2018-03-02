@@ -36,4 +36,10 @@ describe('output the REPORT', () => {
     const result = robot.report(given)
     expect(console.log.mock.calls[0][0]).toEqual(expected)
   })
+
+  it('handles empty objects', () => {
+    const given = {}
+    const result = robot.report(given)
+    expect(console.log.mock.calls.length).toEqual(0)
+  })
 })

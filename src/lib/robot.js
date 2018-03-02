@@ -156,7 +156,10 @@ const rotate = (coordinates, rotateDirection) => {
   report({x:0, y: 0, f:'NORTH'}) // => Log Output: 0,0,NORTH
 */
 const report = coordinates => {
-  console.log(`${coordinates.x},${coordinates.y},${coordinates.f}`)
+  // If Object is not empty
+  if(Object.keys(coordinates).length !== 0 && coordinates.constructor === Object) {
+    console.log(`${coordinates.x},${coordinates.y},${coordinates.f}`)
+  }
 }
 
 module.exports = {
