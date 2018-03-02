@@ -97,9 +97,45 @@ const move = (coordinates, steps = 1) => {
     : coordinates
 }
 
+/*
+* Rotate the toy robot to the specified rotate direction
+* @params {object} coordinates Object containing the coordinates and facing direction of the robot
+* @params {object} rotateDirection The direction to where the robot will be rotated
+* @returns {object} object containing the coordinates and new facing direction of the robot
+* examples
+  rotate({x:0, y: 0, f:'NORTH'}, 'LEFT') // => {x:0, y: 0, f:'WEST'}
+  rotate({x:0, y: 0, f:'NORTH'}, 'RIGHT') // => {x:0, y: 0, f:'EAST'}
+*/
+const rotate = (coordinates, rotateDirection) => {
+  // Clone coordinates
+  const newCoordinates = { ...coordinates }
+  // Move the robot
+  switch (newCoordinates.f) {
+    case 'NORTH':
+      if (rotateDirection === 'LEFT') newCoordinates.f = 'WEST'
+      else if (rotateDirection === 'RIGHT') newCoordinates.f = 'EAST'
+      break
+    case 'SOUTH':
+      if (rotateDirection === 'LEFT') newCoordinates.f = 'EAST'
+      else if (rotateDirection === 'RIGHT') newCoordinates.f = 'WEST'
+      break
+    case 'EAST':
+      if (rotateDirection === 'LEFT') newCoordinates.f = 'NORTH'
+      else if (rotateDirection === 'RIGHT') newCoordinates.f = 'SOUTH'
+      break
+    case 'WEST':
+      if (rotateDirection === 'LEFT') newCoordinates.f = 'SOUTH'
+      else if (rotateDirection === 'RIGHT') newCoordinates.f = 'NORTH'
+      break
+  }
+
+  return newCoordinates
+}
+
 module.exports = {
   toCommandArray,
   evaluateCommands,
   place,
-  move
+  move,
+  rotate
 }
