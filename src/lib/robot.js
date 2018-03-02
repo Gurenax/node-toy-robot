@@ -31,9 +31,9 @@ const toCommandArray = commandStr => {
 * Evaluate toy robot commands
 * @params {object} commands Array of commands
 * @example
-* evaluateCommands(['PLACE 0,0,NORTH', 'MOVE', 'LEFT', 'RIGHT', 'REPORT']) // 0,1,NORTH
+* evaluate(['PLACE 0,0,NORTH', 'MOVE', 'LEFT', 'RIGHT', 'REPORT']) // 0,1,NORTH
 */
-const evaluateCommands = commands => {
+const evaluate = commands => {
   let result = {}
   commands.map(command => {
     if (command.indexOf('PLACE') === 0) {
@@ -160,7 +160,7 @@ const report = coordinates => {
 
 module.exports = {
   toCommandArray,
-  evaluateCommands,
+  evaluate,
   place,
   move,
   rotate,
