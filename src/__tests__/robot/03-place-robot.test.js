@@ -38,8 +38,6 @@ describe('PLACE Robot', () => {
     expect(result).toEqual(expected)
   })
 
-  
-
   it('handles null values', () => {
     const given = null
     const expected = {}
