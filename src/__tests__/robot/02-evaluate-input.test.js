@@ -1,7 +1,6 @@
 const robot = require('../../../src/lib/robot')
 
 describe('Toy Robot Evaluate Input', () => {
-  
   beforeEach(() => {
     jest.spyOn(console, 'log')
   })
@@ -18,35 +17,38 @@ describe('Toy Robot Evaluate Input', () => {
   })
 
   it('does not return anything', () => {
-    const given = ['PLACE 0,0,NORTH', 'MOVE', 'LEFT', 'RIGHT', 'REPORT']
+    const given =
+      'PLACE 0,0,NORTH\n' + 'MOVE\n' + 'LEFT\n' + 'RIGHT\n' + 'REPORT'
     const expected = undefined
     const result = robot.evaluate(given)
     expect(result).toBeUndefined()
   })
 
   it('evaluate commands ', () => {
-    const given = ['PLACE 0,0,NORTH', 'MOVE', 'LEFT', 'RIGHT', 'REPORT']
+    const given =
+      'PLACE 0,0,NORTH\n' + 'MOVE\n' + 'LEFT\n' + 'RIGHT\n' + 'REPORT'
     const expected = '0,1,NORTH'
     const result = robot.evaluate(given)
     expect(console.log.mock.calls[0][0]).toEqual(expected)
   })
 
   it('evaluate commands', () => {
-    const given = ['PLACE 0,0,NORTH', 'MOVE', 'REPORT']
+    const given = 'PLACE 0,0,NORTH\n' + 'MOVE\n' + 'REPORT'
     const expected = '0,1,NORTH'
     const result = robot.evaluate(given)
     expect(console.log.mock.calls[0][0]).toEqual(expected)
   })
 
   it('evaluate commands', () => {
-    const given = ['PLACE 0,0,NORTH', 'LEFT', 'REPORT']
+    const given = 'PLACE 0,0,NORTH\n' + 'LEFT\n' + 'REPORT'
     const expected = '0,0,WEST'
     const result = robot.evaluate(given)
     expect(console.log.mock.calls[0][0]).toEqual(expected)
   })
 
   it('evaluate commands', () => {
-    const given = ['PLACE 1,2,EAST', 'MOVE', 'MOVE', 'LEFT', 'MOVE', 'REPORT']
+    const given =
+      'PLACE 1,2,EAST\n' + 'MOVE\n' + 'MOVE\n' + 'LEFT\n' + 'MOVE\n' + 'REPORT'
     const expected = '3,3,NORTH'
     const result = robot.evaluate(given)
     expect(console.log.mock.calls[0][0]).toEqual(expected)
