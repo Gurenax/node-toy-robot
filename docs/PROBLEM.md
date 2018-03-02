@@ -1,4 +1,5 @@
 # Toy Robot Simulator
+### by Glenn Dimaliwat
 
 ### Description
 

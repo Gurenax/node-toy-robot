@@ -1,4 +1,5 @@
 # Toy Robot Simulator
+### by Glenn Dimaliwat
 
 The toy robot simulator is an app which simulates the movement, rotation and placement of a robot in a 5 by 5 square tabletop. The robot cannot go beyond the edges of the table and any movement or placement pertaining to that behaviour will be ignored by the app.
 
