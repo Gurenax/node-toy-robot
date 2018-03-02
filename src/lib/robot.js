@@ -1,4 +1,4 @@
-const { csvToArray } = require('./csvHelper')
+const { csvToArray } = require('./utils/csv')
 const { isValidCoordinatesAndDirection } = require('./placeHelper')
 
 /*
@@ -10,7 +10,7 @@ const { isValidCoordinatesAndDirection } = require('./placeHelper')
     MOVE
     LEFT
     RIGHT
-    REPORT`) // => ['PLACE X,Y,F', 'MOVE', 'LEFT', 'RIGHT', 'REPORT']
+    REPORT`) // => ['PLACE 0,0,NORTH', 'MOVE', 'LEFT', 'RIGHT', 'REPORT']
 */
 const toCommandArray = commandStr => {
   if (commandStr === null) return []
@@ -22,7 +22,7 @@ const toCommandArray = commandStr => {
       // Trim every string element
       const trimmedCommand = command.trim()
       // Return if trimmed string is greater than length 0
-      if (trimmedCommand.length > 0) return trimmedCommand
+      if (trimmedCommand.length > 0) return trimmedCommand.toUpperCase()
     })
     .filter(elem => elem !== undefined) // Remove undefined elements
 }
@@ -31,10 +31,26 @@ const toCommandArray = commandStr => {
 * Evaluate toy robot commands
 * @params {object} commands Array of commands
 * @example
-* evaluateCommands(['PLACE X,Y,F', 'MOVE', 'LEFT', 'RIGHT', 'REPORT'])
+* evaluateCommands(['PLACE 0,0,NORTH', 'MOVE', 'LEFT', 'RIGHT', 'REPORT']) // 0,1,NORTH
 */
 const evaluateCommands = commands => {
-  commands.map(command => {})
+  let result = {}
+  commands.map(command => {
+    if (command.indexOf('PLACE') === 0) {
+      result = place(command)
+    } else if (command === 'MOVE') {
+      const currentCoordinates = { ...result }
+      result = move(currentCoordinates)
+    } else if (command === 'LEFT') {
+      const currentCoordinates = { ...result }
+      result = rotate(currentCoordinates, 'LEFT')
+    } else if (command === 'RIGHT') {
+      const currentCoordinates = { ...result }
+      result = rotate(currentCoordinates, 'RIGHT')
+    } else if (command === 'REPORT') {
+      report(result)
+    }
+  })
 }
 
 /*
@@ -42,7 +58,7 @@ const evaluateCommands = commands => {
 * @params {string} positionStr Coordinates and facing direction of the robot
 * @returns {object} object containing the coordinates and facing direction of the robot
 * example
-  place({x:0, y: 0, f:'NORTH'})
+  place('0, 0, NORTH') // => { x:0, y:0, f: 'NORTH' }
 */
 const place = positionStr => {
   if (positionStr === null) return {}
@@ -132,10 +148,21 @@ const rotate = (coordinates, rotateDirection) => {
   return newCoordinates
 }
 
+/*
+* Produce standard output for toy robot's current position
+* @params {object} coordinates Object containing the coordinates and facing direction of the robot
+* examples
+  report({x:0, y: 0, f:'NORTH'}) // => Log Output: 0,0,NORTH
+*/
+const report = coordinates => {
+  console.log(`${coordinates.x},${coordinates.y},${coordinates.f}`)
+}
+
 module.exports = {
   toCommandArray,
   evaluateCommands,
   place,
   move,
-  rotate
+  rotate,
+  report
 }
