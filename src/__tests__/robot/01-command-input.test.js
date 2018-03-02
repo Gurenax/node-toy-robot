@@ -1,8 +1,9 @@
 const robot = require('../../../src/lib/robot')
 
 describe('Toy Robot Input', () => {
-  it('recognizes that readCommands is a function', () => {
-    const given = robot.readCommands
+  
+  it('recognizes that toCommandArray is a function', () => {
+    const given = robot.toCommandArray
     const expected = 'function'
     const result = typeof given
     expect(result).toEqual(expected)
@@ -16,7 +17,7 @@ describe('Toy Robot Input', () => {
     RIGHT
     REPORT`
     const expected = ['PLACE X,Y,F', 'MOVE', 'LEFT', 'RIGHT', 'REPORT']
-    const result = robot.readCommands(given)
+    const result = robot.toCommandArray(given)
     expect(result).toEqual(expected)
   })
 
@@ -28,7 +29,7 @@ describe('Toy Robot Input', () => {
     RIGHT
     REPORT`
     const expected = 'object'
-    const result = typeof robot.readCommands(given)
+    const result = typeof robot.toCommandArray(given)
     expect(result).toEqual(expected)
   })
 
@@ -48,14 +49,14 @@ describe('Toy Robot Input', () => {
 
     `
     const expected = ['PLACE X,Y,F', 'MOVE', 'LEFT', 'RIGHT', 'REPORT']
-    const result = robot.readCommands(given)
+    const result = robot.toCommandArray(given)
     expect(result).toEqual(expected)
   })
 
   it('handles a null command', () =>{
     const given = null
     const expected = []
-    const result = robot.readCommands(given)
+    const result = robot.toCommandArray(given)
     expect(result).toEqual(expected)
   })
 })
